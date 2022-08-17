@@ -15,8 +15,17 @@ function getElementValueById(elementId)
 
    return value;
 }
+
+function setElementValueById(elementId, newValue)
+{
+   const textElement = document.getElementById(elementId);
+   textElement.innerText = newValue;
+}
 document.getElementById('btn-deposit').addEventListener('click', function(){
   const newDepositAmount = getInputFieldValueById('deposit-field');
   const previousDepositTotal = getElementValueById('deposit-total');
-  console.log(newDepositAmount);  
+ 
+  const newDepositTotal = previousDepositTotal + newDepositAmount;
+  //set total deposit amount
+  setElementValueById('deposit-total', newDepositTotal);
 })
